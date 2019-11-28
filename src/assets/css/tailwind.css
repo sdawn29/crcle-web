@@ -1,0 +1,34 @@
+@tailwind base;
+
+h1 {
+    @apply text-2xl;
+}
+
+h2 {
+    @apply text-xl;
+}
+
+h3 {
+    @apply text-lg;
+}
+
+a {
+    @apply text-blue-600 underline;
+}
+
+table {
+    @apply table-auto
+}
+
+ul {
+    @apply list-disc;
+    @apply list-inside;
+}
+
+ol {
+    @apply list-decimal;
+    @apply list-inside;
+}
+
+@tailwind components;
+@tailwind utilities;
