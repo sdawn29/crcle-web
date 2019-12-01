@@ -4,19 +4,19 @@
     <div class="flex justify-between my-3">
       <div>
         <div
-          class="inline-block font-semibold mr-2 bg-gray-800 hover:bg-gray-900 cursor-pointer rounded px-3 py-1"
+          class="inline-block font-semibold mr-2 bg-gray-200 hover:bg-gray-300 text-gray-700 shadow cursor-pointer rounded px-3 py-1"
         >
           <i class="fas fa-certificate mr-1"></i>
           New
         </div>
         <div
-          class="inline-block font-semibold mr-2 bg-gray-800 hover:bg-gray-900 cursor-pointer rounded px-3 py-1"
+          class="inline-block font-semibold mr-2 bg-gray-200 hover:bg-gray-300 text-gray-700 shadow cursor-pointer rounded px-3 py-1"
         >
           <i class="fas fa-fire mr-2"></i>Top
         </div>
       </div>
 
-      <div class="w-64 relative">
+      <!-- <div class="w-64 relative">
         <input
           type="text"
           placeholder="Search"
@@ -33,15 +33,15 @@
             />
           </svg>
         </div>
-      </div>
+      </div>-->
 
       <div v-if="this.$session.exists()">
         <div
-          class="font-black text-blue-700 px-3 py-1 rounded hover:text-blue-600 cursor-pointer inline-block"
+          class="font-bold text-blue-700 px-3 py-1 rounded hover:text-blue-600 cursor-pointer inline-block"
         >Create Crcle</div>
         <div
           @click="$router.push({name: 'submit'})"
-          class="font-bold bg-blue-700 px-3 py-1 rounded hover:bg-blue-800 cursor-pointer inline-block"
+          class="font-semi-bold bg-blue-600 px-3 py-1 rounded hover:bg-blue-700 cursor-pointer shadow text-white inline-block"
         >+ Add Post</div>
       </div>
     </div>
@@ -62,7 +62,6 @@
           :upvotes="post.upvotes"
           :downvotes="post.downvotes"
           :noOfComments="(post.comments).length"
-          class="border border-gray-900 hover:border-gray-700"
         />
       </div>
     </div>

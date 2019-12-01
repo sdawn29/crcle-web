@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="appFont mx-auto max-w-5xl">
+  <div id="app" class="appFont mx-auto max-w-4xl sm:w-full">
     <router-view />
   </div>
 </template>

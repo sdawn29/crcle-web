@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-10" style="width:18em">
+  <div class="mx-auto mt-10 shadow-lg rounded-lg p-5 bg-white" style="width:20em">
     <div>
       <div
         @click="$router.push({name: 'home'})"
@@ -21,7 +21,7 @@
           <input
             type="text"
             placeholder="Enter Username"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.username"
             required
           />
@@ -33,21 +33,21 @@
           <input
             type="password"
             placeholder="Enter Password"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.password"
             required
           />
         </div>
         <button
           type="submit"
-          class="bg-blue-700 hover:bg-blue-800 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer"
+          class="bg-blue-700 hover:bg-blue-800 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer shadow-md"
         >Sign In</button>
       </form>
       <div>
-        <small class="text-gray-200">
+        <small class="text-gray-900">
           New to Crcle?
           <div @click="$router.push({name: 'signup'})" class="inline-block">
-            <strong class="text-blue-700 hover:text-blue-600 cursor-pointer">SIGN UP</strong>
+            <strong class="text-blue-600 hover:text-blue-500 cursor-pointer">SIGN UP</strong>
           </div>
         </small>
       </div>

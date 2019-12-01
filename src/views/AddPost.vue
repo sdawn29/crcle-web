@@ -3,7 +3,7 @@
     <Navbar />
     <div class="text-lg font-semibold my-3">Create a Post</div>
     <div class="flex">
-      <form @submit.prevent="submit" class="border border-gray-900 px-4 py-2 rounded-lg w-3/4">
+      <form @submit.prevent="submit" class="shadow-lg bg-white px-4 py-2 rounded-lg w-3/4">
         <div>
           <label for="title" class="text-sm font-semibold">Title</label>
         </div>
@@ -11,7 +11,7 @@
           <input
             type="text"
             placeholder="Title of the post"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-200 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="post.title"
           />
         </div>
@@ -38,7 +38,7 @@
             type="text"
             rows="10"
             placeholder="Body of the post also supports markdown"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-200 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="post.body"
           />
         </div>
@@ -48,8 +48,8 @@
         <div class="flex justify-between">
           <div>{{Date.now()}}</div>
           <button
-            type="supmit"
-            class="px-4 py-2 bg-blue-700 hover:bg-blue-900 font-bold rounded mb-2"
+            type="submit"
+            class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white shadow-md"
           >Add Post</button>
         </div>
       </form>

@@ -1,56 +1,64 @@
 <template>
-  <div class="rounded-lg px-5 py-5 mb-5">
-    <div id="title" class="font-semibold">{{title}}</div>
-    <div id="body" class="text-sm text-gray-300 mt-3" v-html="compiledMarkup"></div>
-    <div class="flex justify-between mt-5">
-      <div class="flex">
-        <div
-          class="text-xs font-bold bg-purple-800 hover:bg-purple-900 cursor-pointer px-2 py-1 rounded"
-          v-if="author.isAdmin"
-        >{{author.username}}</div>
-        <div
-          class="text-xs font-bold bg-gray-800 hover:bg-gray-900 cursor-pointer px-2 py-1 rounded"
-          v-if="!author.isAdmin"
-        >{{author.username}}</div>
-        <div
-          class="text-xs font-bold px-2 py-1 border border-yellow-500 text-yellow-500 rounded mx-3"
-        >
-          <i class="fas fa-bullhorn mr-1"></i>Announcements
-        </div>
-      </div>
-      <div class="flex">
-        <div class="inline-block w-16 flex justify-between font-semibold">
-          <div class="inline" v-if="isUpvoted">
-            <i class="fas fa-arrow-up text-blue-500"></i>
+  <div class="rounded-lg shadow-lg px-5 py-5 mb-5 flex justify-between bg-white">
+    <div class="w-5/6">
+      <div id="title" class="font-semibold">{{title}}</div>
+      <div id="body" class="text-sm mt-3" v-html="compiledMarkup"></div>
+    </div>
+    <div>
+      <div class="h-full flex flex-col justify-between">
+        <div>
+          <div
+            class="text-sm font-medium cursor-pointer rounded flex block text-purple-700"
+            v-if="author.isAdmin"
+          >👑{{author.username}}</div>
+          <div class="text-sm font-medium cursor-pointer rounded flex" v-if="!author.isAdmin">
+            🧔🏽
+            {{author.username}}
           </div>
           <div
-            class="inline"
-            @click="vote(id, 'upvote'); isUpvoted = true; isDownvoted = false"
-            v-else
+            class="text-xs font-bold border border-yellow-500 text-yellow-500 rounded my-2 px-2 py-1"
           >
-            <i class="fas fa-arrow-up hover:text-blue-500 cursor-pointer"></i>
+            <i class="fas fa-bullhorn mr-1"></i>Announcements
           </div>
-          <div class="inline text-blue-500" v-if="isUpvoted">{{upvotes - downvotes}}</div>
-          <div class="inline text-orange-500" v-else-if="isDownvoted">{{upvotes - downvotes}}</div>
-          <div class="inline" v-else>{{upvotes - downvotes}}</div>
+        </div>
 
-          <div class="inline" v-if="isDownvoted">
-            <i class="fas fa-arrow-down text-orange-500"></i>
+        <div>
+          <div class="inline-block w-full my-2 flex justify-between font-semibold">
+            <div class="inline px-2 py-1 rounded bg-blue-500 text-white" v-if="isUpvoted">
+              <i class="fas fa-arrow-up"></i>
+            </div>
+            <div
+              class="inline px-2 py-1 bg-gray-200 rounded hover:bg-blue-500 hover:text-white cursor-pointer"
+              @click="vote(id, 'upvote'); isUpvoted = true; isDownvoted = false"
+              v-else
+            >
+              <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="inline text-blue-500 px-2 py-1" v-if="isUpvoted">{{upvotes - downvotes}}</div>
+            <div
+              class="inline text-orange-500 px-2 py-1"
+              v-else-if="isDownvoted"
+            >{{upvotes - downvotes}}</div>
+            <div class="inline px-2 py-1" v-else>{{upvotes - downvotes}}</div>
+
+            <div class="inline px-2 py-1 rounded bg-orange-500 text-white" v-if="isDownvoted">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <div
+              class="inline px-2 py-1 bg-gray-200 rounded hover:bg-orange-500 hover:text-white cursor-pointer"
+              @click="vote(id, 'downvote'); isUpvoted = false; isDownvoted = true"
+              v-else
+            >
+              <i class="fas fa-arrow-down"></i>
+            </div>
           </div>
           <div
-            class="inline"
-            @click="vote(id, 'downvote'); isUpvoted = false; isDownvoted = true"
-            v-else
+            class="inline-block text-sm font-bold text-gray-400 hover:text-blue-400 cursor-pointer"
+            @click="$router.push({name: 'post', params: { id: id}})"
           >
-            <i class="fas fa-arrow-down hover:text-orange-500 cursor-pointer"></i>
+            {{typeof noOfcomments == 'undefined' ? 0 : noOfcomments}}
+            <i class="fas fa-comment-alt"></i>
           </div>
-        </div>
-        <div
-          class="inline-block ml-5 text-sm font-bold text-gray-400 hover:text-blue-400 cursor-pointer"
-          @click="$router.push({name: 'post', params: { id: id}})"
-        >
-          {{typeof noOfcomments == 'undefined' ? 0 : noOfcomments}}
-          <i class="fas fa-comment-alt"></i>
         </div>
       </div>
     </div>
