@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-10" style="width:18em">
+  <div class="mx-auto mt-10 shadow-lg rounded-lg p-5 bg-white" style="width:20em">
     <div>
       <div
         @click="$router.push({name: 'home'})"
@@ -9,7 +9,7 @@
         <span class="text-blue-500 text-5xl">.</span>
       </div>
       <div
-        class="text-sm font-semibold mb-3 text-gray-300"
+        class="text-sm font-semibold mb-3 text-gray-900"
       >By having a Crcle account, you can join, vote, and comment on all your favorite Crcle content.</div>
 
       <ErrorAlert :msg="error.msg" v-if="error.status" />
@@ -23,7 +23,7 @@
           <input
             type="text"
             placeholder="Enter Username"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.username"
           />
         </div>
@@ -34,31 +34,31 @@
           <input
             type="password"
             placeholder="Enter Password"
-            class="w-full px-4 py-2 bg-gray-900 rounded my-2 outline-none border-2 border-gray-900 focus:border-blue-700 focus:bg-black text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.password"
           />
         </div>
         <button
           type="submit"
-          class="bg-blue-700 hover:bg-blue-800 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer"
+          class="bg-blue-600 hover:bg-blue-700 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer"
         >Sign Up</button>
       </form>
       <div>
         <small>
           By clicking
           <strong>Sign up</strong>, you agree to our
-          <span class="text-blue-700 hover:text-blue-600 cursor-pointer">Terms</span> and that you have read our
+          <span class="text-blue-600 hover:text-blue-700 cursor-pointer">Terms</span> and that you have read our
           <span
-            class="text-blue-700 hover:text-blue-600 cursor-pointer"
+            class="text-blue-600 hover:text-blue-700 cursor-pointer"
           >Privacy Policy</span> and
-          <span class="text-blue-700 hover:text-blue-600 cursor-pointer">Content Policy</span>.
+          <span class="text-blue-600 hover:text-blue-700 cursor-pointer">Content Policy</span>.
         </small>
       </div>
       <div class="my-3">
         <small>
           Already have an account?
           <div @click="$router.push({name: 'login'})" class="inline-block">
-            <strong class="text-blue-700 hover:text-blue-600 cursor-pointer">SIGN IN</strong>
+            <strong class="text-blue-600 hover:text-blue-500 cursor-pointer">SIGN IN</strong>
           </div>
         </small>
       </div>
@@ -103,8 +103,8 @@ export default {
         data: this.user
       };
       try {
-        const response = await axios(config);
-        console.log(response);
+        await axios(config);
+        // console.log(response);
         this.loading = false;
         this.success.status = true;
         this.success.msg =
