@@ -119,7 +119,7 @@ export default {
           if (action === "upvote" && this.voted) this.upvotes++;
           if (action === "downvote" && this.voted) this.downvotes++;
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
     },

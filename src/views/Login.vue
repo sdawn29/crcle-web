@@ -93,7 +93,7 @@ export default {
       };
       try {
         const response = await axios(config);
-        console.log(response);
+        // console.log(response);
         this.loading = false;
         this.success.status = true;
         this.success.msg = "You have succesfuly logged in!";
@@ -126,7 +126,7 @@ export default {
         const response = await axios(config);
         this.$session.set("user", response.data.user);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
   }

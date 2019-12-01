@@ -102,7 +102,7 @@ export default {
         const response = await axios(config);
         this.posts = response.data.posts;
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
   }
