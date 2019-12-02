@@ -1,25 +1,25 @@
 <template>
   <div class="rounded-lg shadow-lg px-5 py-5 mb-5 flex justify-between bg-white">
-    <div class="w-5/6">
+    <div class="w-5/6 mr-2">
       <div id="title" class="font-semibold text-xl">{{title}}</div>
       <div id="body" class="text-sm mt-3" v-html="compiledMarkup"></div>
     </div>
-    <div>
+    <div class="w-1/6 ml-5">
       <div class="h-full flex flex-col justify-between">
         <div>
           <div
-            class="text-sm font-medium cursor-pointer rounded flex block text-purple-700"
+            class="text-sm font-medium cursor-pointer rounded block text-purple-700 w-full hover:underline"
             v-if="author.isAdmin"
-          >👑{{author.username}}</div>
-          <div class="text-sm font-medium cursor-pointer rounded flex" v-if="!author.isAdmin">
-            🧔🏽
-            {{author.username}}
-          </div>
+          >{{author.username}}👑</div>
           <div
+            class="text-sm font-medium cursor-pointer rounded hover:underline"
+            v-if="!author.isAdmin"
+          >{{author.username}}🧔🏽</div>
+          <!-- <div
             class="text-xs font-bold border border-yellow-500 text-yellow-500 rounded my-2 px-2 py-1"
           >
             <i class="fas fa-bullhorn mr-1"></i>Announcements
-          </div>
+          </div>-->
           <div class="text-sm font-semibold text-gray-700">
             <i class="far fa-calendar-alt mr-1"></i>
             {{ moment(time).fromNow()}}

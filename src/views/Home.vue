@@ -46,8 +46,11 @@
       </div>
     </div>
     <div class="my-5">
-      <div v-if="posts.length == 0" class="my-32">
-        <center>There is no post to show</center>
+      <div v-if="posts.length == 0" class="mt-4 mb-24 text-center font-bold">
+        <img src="../assets/empty.svg" alt width="500" />
+        <div
+          class="bg-gray-200 inline-block rounded-lg px-10 py-5 text-gray-800 m-5"
+        >There is no post to show</div>
       </div>
       <div v-else v-for="post in posts" :key="post._id">
         <Post
