@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       moment: moment,
-      uri: "http://localhost:4000",
+      uri: process.env.VUE_APP_API_URL,
       post: "",
       comment: {
         body: "",

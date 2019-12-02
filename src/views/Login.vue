@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      uri: "http://localhost:4000",
+      uri: process.env.VUE_APP_API_URL,
       user: {
         username: "",
         password: ""
@@ -114,7 +114,7 @@ export default {
     },
 
     async getUserData(token) {
-      const uri = "http://localhost:4000/api/users/me";
+      const uri = `${process.env.VUE_APP_API_URL}/api/users/me`;
       const config = {
         method: "get",
         url: uri,

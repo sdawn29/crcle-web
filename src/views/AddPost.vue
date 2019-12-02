@@ -16,9 +16,8 @@
           />
         </div>
         <div class="flex justify-between text-sm mt-5">
-          <div>
-            <label for="body" class="font-semibold py-1">Body</label>
-          </div>
+          <label for="body" class="font-semibold py-1">Body</label>
+
           <div v-if="post.body != ''">
             <div
               class="bg-gray-200 hover:bg-gray-300 shadow cursor-pointer rounded px-3 py-1 font-semibold"
@@ -42,7 +41,7 @@
             v-model="post.body"
           />
         </div>
-        <div v-if="preview" class="border border-gray-800 p-3 my-3 rounded">
+        <div v-if="preview" class="border p-3 my-3 rounded">
           <div v-html="compiledMarked" class="text-sm"></div>
         </div>
         <div class="flex justify-between">
@@ -105,7 +104,7 @@ export default {
   },
   data() {
     return {
-      uri: "http://localhost:4000",
+      uri: process.env.VUE_APP_API_URL,
       success: false,
       post: {
         title: "",

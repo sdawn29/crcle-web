@@ -98,7 +98,7 @@ export default {
       if (!this.$session.exists()) {
         this.$router.push({ name: "login" });
       } else {
-        const uri = `http://localhost:4000/api/posts/${id}/${action}/${this.user._id}/${this.voted}`;
+        const uri = `${process.env.VUE_APP_API_URL}/api/posts/${id}/${action}/${this.user._id}/${this.voted}`;
         const config = {
           method: "put",
           url: uri,

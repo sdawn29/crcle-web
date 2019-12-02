@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      uri: "http://localhost:4000",
+      uri: process.env.VUE_APP_API_URL,
       user: {
         username: "",
         password: ""

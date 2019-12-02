@@ -6,6 +6,7 @@ import SignUp from '../views/SignUp.vue'
 import Logout from '../views/Logout.vue'
 import AddPost from '../views/AddPost.vue'
 import DetailedPost from '../views/DetailedPost.vue'
+// import FourOhFour from '../views/FourOhFour.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,10 @@ const routes = [{
     name: 'home',
     component: Home
   },
+  // {
+  //   path: '/*',
+  //   component: FourOhFour
+  // },
   {
     path: '/login',
     name: 'login',
