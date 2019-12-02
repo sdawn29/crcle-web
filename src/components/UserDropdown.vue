@@ -1,6 +1,6 @@
 <template>
   <div class="relative mt-2">
-    <div class="relative z-10 flex rounded w-auto flex justify-between">
+    <div class="relative z-10 flex rounded w-40 flex justify-between">
       <div></div>
       <div @click="menu = !menu">
         <button

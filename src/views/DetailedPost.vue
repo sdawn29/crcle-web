@@ -34,18 +34,36 @@
         />
       </div>
       <div>
-        <textarea
-          type="text"
-          rows="4"
-          placeholder="What are your thoughts? You can format text using marked down."
-          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
-          v-model="comment.body"
-        />
-        <div class="flex justify-end">
-          <button
-            class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white shadow-md"
-            @click="submit"
-          >Comment</button>
+        <div v-if="$session.exists()">
+          <textarea
+            type="text"
+            rows="4"
+            placeholder="What are your thoughts? You can format text using marked down."
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+            v-model="comment.body"
+          />
+          <div class="flex justify-end">
+            <button
+              class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white shadow-md"
+              @click="submit"
+            >Comment</button>
+          </div>
+        </div>
+        <div
+          v-else
+          class="flex justify-between bg-gray-200 inline-block rounded-lg px-10 py-5 text-gray-800 w-full font-semibold"
+        >
+          <div class="px-4 py-2">Log in or Sign up to post your comment</div>
+          <div>
+            <div
+              @click="$router.push({name: 'login'})"
+              class="ont-semibold text-blue-600 hover:text-blue-800 cursor-pointer inline-block px-4 py-2"
+            >Login</div>
+            <div
+              @click="$router.push({name: 'signup'})"
+              class="font-semibold bg-blue-600 hover:bg-blue-700 cursor-pointer px-4 py-2 rounded shadow text-white inline-block"
+            >Sign Up</div>
+          </div>
         </div>
         <div
           class="mt-4 mb-24 text-center font-bold"
@@ -116,7 +134,7 @@ export default {
       post: "",
       comment: {
         body: "",
-        author: this.$session.get("user")._id,
+        author: this.$session.exists() ? this.$session.get("user")._id : "",
         postId: this.$route.params.id
       },
       success: false,
