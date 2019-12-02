@@ -1,7 +1,7 @@
 <template>
   <div class="rounded-lg shadow-lg px-5 py-5 mb-5 flex justify-between bg-white">
     <div class="w-5/6">
-      <div id="title" class="font-semibold">{{title}}</div>
+      <div id="title" class="font-semibold text-xl">{{title}}</div>
       <div id="body" class="text-sm mt-3" v-html="compiledMarkup"></div>
     </div>
     <div>
@@ -19,6 +19,10 @@
             class="text-xs font-bold border border-yellow-500 text-yellow-500 rounded my-2 px-2 py-1"
           >
             <i class="fas fa-bullhorn mr-1"></i>Announcements
+          </div>
+          <div class="text-sm font-semibold text-gray-700">
+            <i class="far fa-calendar-alt mr-1"></i>
+            {{ moment(time).fromNow()}}
           </div>
         </div>
 
@@ -53,10 +57,10 @@
             </div>
           </div>
           <div
-            class="inline-block text-sm font-bold text-gray-400 hover:text-blue-400 cursor-pointer"
+            class="inline-block text-sm font-bold text-gray-500 hover:text-blue-400 cursor-pointer"
             @click="$router.push({name: 'post', params: { id: id}})"
           >
-            {{typeof noOfcomments == 'undefined' ? 0 : noOfcomments}}
+            {{typeof noOfComments == 'undefined' ? 0 : noOfComments}}
             <i class="fas fa-comment-alt"></i>
           </div>
         </div>
@@ -68,6 +72,7 @@
 <script>
 import axios from "axios";
 import marked from "marked";
+var moment = require("moment");
 export default {
   created() {
     this.isVoted();
@@ -90,10 +95,11 @@ export default {
     "downvotes",
     "upvotedBy",
     "downvotedBy",
-    "noOfcomments"
+    "noOfComments"
   ],
   data() {
     return {
+      moment: moment,
       isUpvoted: false,
       isDownvoted: false,
       voted: false

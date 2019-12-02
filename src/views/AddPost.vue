@@ -17,11 +17,11 @@
         </div>
         <div class="flex justify-between text-sm mt-5">
           <div>
-            <label for="body" class="font-semibold">Body</label>
+            <label for="body" class="font-semibold py-1">Body</label>
           </div>
           <div v-if="post.body != ''">
             <div
-              class="bg-gray-800 hover:bg-gray-900 cursor-pointer text-gray-300 hover:text-white rounded px-3 py-1 font-semibold"
+              class="bg-gray-200 hover:bg-gray-300 shadow cursor-pointer rounded px-3 py-1 font-semibold"
               @click="preview = !preview"
             >
               <span v-if="!preview">

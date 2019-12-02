@@ -1,6 +1,6 @@
 <template>
   <div class="relative mt-2">
-    <div class="relative z-10 flex rounded w-40 flex justify-between">
+    <div class="relative z-10 flex rounded w-auto flex justify-between">
       <div></div>
       <div @click="menu = !menu">
         <button
@@ -8,7 +8,7 @@
           v-if="!user.isAdmin"
         >{{ user.username }}</button>
         <button
-          class="font-bold text-sm mx-auto cursor-pointer py-2 px-4 border border-purple-500 text-purple-500 hover:bg-gray-200 rounded outline-none"
+          class="font-bold text-sm mx-auto cursor-pointer py-2 px-4 border border-purple-500 text-purple-500 hover:bg-gray-200 rounded outline-none bg-white"
           v-if="user.isAdmin"
         >👑{{ user.username }}</button>
       </div>
@@ -19,7 +19,7 @@
       class="fixed inset-0 h-full w-full cursor-default outline-none"
     ></div>
     <div
-      class="font-semibold text-sm absolute bg-gray-200 shadow-md rounded"
+      class="font-semibold text-sm absolute bg-white shadow-md rounded"
       style="width:100%"
       v-if="menu"
     >

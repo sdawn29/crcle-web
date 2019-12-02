@@ -5,7 +5,7 @@
       <div class="flex justify-between">
         <div>
           <div class="text-sm font-bold mr-2 text-gray-600">posted</div>
-          <div class="text-lg font-bold mr-2">{{ moment(post.createdAt).format("MMM Do YY") }}</div>
+          <div class="text-lg font-bold mr-2">{{ moment(post.createdAt).format("MMM Do YYYY") }}</div>
         </div>
         <div>
           <div class="text-3xl">
@@ -39,15 +39,43 @@
           rows="4"
           placeholder="What are your thoughts? You can format text using marked down."
           class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+          v-model="comment.body"
         />
         <div class="flex justify-end">
           <button
             class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white shadow-md"
+            @click="submit"
           >Comment</button>
         </div>
-        <div class="my-4 text-center font-bold">Be the first to comment something</div>
+        <div
+          class="mt-4 mb-24 text-center font-bold"
+          v-if="typeof post.comments == 'undefined' || (post.comments).length == 0"
+        >
+          <img src="../assets/empty.svg" alt width="500" />
+          <div
+            class="bg-gray-200 inline-block rounded-lg px-10 py-5 text-gray-800 m-5"
+          >Be the first to comment something.</div>
+        </div>
+        <div v-else>
+          <div class="text-xl font-bold my-4 text-gray-600">Comments</div>
+          <Comment
+            v-for="comment in post.comments"
+            :key="comment._id"
+            :id="comment._id"
+            :body="comment.body"
+            :author="comment.author"
+            :time="comment.createdAt"
+            :upvotedBy="comment.upvotedBy"
+            :downvotedBy="comment.downvotedBy"
+            :upvotes="comment.upvotes"
+            :downvotes="comment.downvotes"
+            :noOfComments="typeof comment.replies == 'undefined' ? 0 : (comment.replies).length"
+          />
+        </div>
       </div>
     </div>
+    <ErrorToast :msg="error.msg" v-if="error.status" />
+    <SuccessToast msg="The comment has been submitted" v-if="success" />
   </div>
 </template>
 
@@ -57,13 +85,20 @@ var moment = require("moment");
 
 import Navbar from "../components/Navbar.vue";
 import Post from "../components/Post.vue";
+import Comment from "../components/Comment.vue";
+import ErrorToast from "../components/ErrorToast";
+import SuccessToast from "../components/SuccessToast";
+
 export default {
   created() {
     this.getPost(this.$route.params.id);
   },
   components: {
     Navbar,
-    Post
+    Post,
+    Comment,
+    ErrorToast,
+    SuccessToast
   },
   computed: {
     pointsPer() {
@@ -78,7 +113,17 @@ export default {
     return {
       moment: moment,
       uri: "http://localhost:4000",
-      post: ""
+      post: "",
+      comment: {
+        body: "",
+        author: this.$session.get("user")._id,
+        postId: this.$route.params.id
+      },
+      success: false,
+      error: {
+        status: false,
+        msg: ""
+      }
     };
   },
   methods: {
@@ -96,9 +141,35 @@ export default {
       try {
         const response = await axios(config);
         this.post = response.data.post;
+        console.log(this.post.comments.length);
       } catch (error) {
         // console.log(error);
       }
+    },
+
+    async submit() {
+      const config = {
+        method: "post",
+        url: this.uri + "/api/comments",
+        headers: {
+          "x-auth-token": this.$session.get("jwt")
+        },
+        data: this.comment
+      };
+      try {
+        await axios(config);
+        this.success = true;
+        this.getPost(this.comment.postId);
+        setTimeout(() => {
+          this.success = false;
+          this.error.status = false;
+          this.error.msg = "";
+        }, 2000);
+      } catch (error) {
+        this.error.status = true;
+        this.error.msg = error.response;
+      }
+      this.comment.body = "";
     }
   }
 };
