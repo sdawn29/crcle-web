@@ -141,7 +141,7 @@ export default {
       try {
         const response = await axios(config);
         this.post = response.data.post;
-        console.log(this.post.comments.length);
+        // console.log(this.post.comments.length);
       } catch (error) {
         // console.log(error);
       }
