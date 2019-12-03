@@ -38,6 +38,7 @@
       <div v-if="this.$session.exists()">
         <div
           class="font-bold text-blue-600 px-3 py-1 rounded hover:text-blue-500 cursor-pointer inline-block"
+          @click="$router.push({name: 'create'})"
         >Create Crcle</div>
         <div
           @click="$router.push({name: 'submit'})"

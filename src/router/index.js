@@ -6,6 +6,7 @@ import SignUp from '../views/SignUp.vue'
 import Logout from '../views/Logout.vue'
 import AddPost from '../views/AddPost.vue'
 import DetailedPost from '../views/DetailedPost.vue'
+import CreateCrcle from '../views/CreateCrcle.vue'
 // import FourOhFour from '../views/FourOhFour.vue'
 
 Vue.use(VueRouter)
@@ -45,6 +46,11 @@ const routes = [{
     path: '/p/:id',
     name: 'post',
     component: DetailedPost
+  },
+  {
+    path: '/crcle/create',
+    name: 'create',
+    component: CreateCrcle
   },
 ]
 
