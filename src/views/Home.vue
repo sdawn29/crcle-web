@@ -4,13 +4,13 @@
     <div class="flex justify-between my-3">
       <div>
         <div
-          class="inline-block font-semibold mr-2 bg-white hover:bg-gray-200 text-gray-800 shadow cursor-pointer rounded px-3 py-1"
+          class="inline-block font-semibold mr-2 bg-white hover:bg-gray-200 border text-gray-800 cursor-pointer rounded px-3 py-1"
         >
           <i class="fas fa-certificate mr-1"></i>
           New
         </div>
         <div
-          class="inline-block font-semibold mr-2 bg-white hover:bg-gray-200 text-gray-800 shadow cursor-pointer rounded px-3 py-1"
+          class="inline-block font-semibold mr-2 bg-white hover:bg-gray-200 border text-gray-800 cursor-pointer rounded px-3 py-1"
         >
           <i class="fas fa-fire mr-2"></i>Top
         </div>
@@ -37,13 +37,13 @@
 
       <div v-if="this.$session.exists()">
         <div
-          class="font-bold text-blue-600 px-3 py-1 rounded hover:text-blue-500 cursor-pointer inline-block"
+          class="font-bold text-blue-600 px-3 py-1 rounded hover:text-white hover:bg-blue-600 cursor-pointer inline-block border-blue-600 border-2 mx-3"
           @click="$router.push({name: 'create'})"
         >Create Crcle</div>
         <div
           @click="$router.push({name: 'submit'})"
-          class="font-semi-bold bg-blue-600 px-3 py-1 rounded hover:bg-blue-700 cursor-pointer shadow-md text-white inline-block"
-        >+ Add Post</div>
+          class="font-semibold bg-blue-600 px-3 py-1 rounded hover:bg-blue-700 cursor-pointer text-white inline-block border-blue-700 border"
+        >Add Post</div>
       </div>
     </div>
     <div class="my-5">

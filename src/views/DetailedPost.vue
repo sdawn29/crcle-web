@@ -39,12 +39,12 @@
             type="text"
             rows="4"
             placeholder="What are your thoughts? You can format text using marked down."
-            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
             v-model="comment.body"
           />
           <div class="flex justify-end">
             <button
-              class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white shadow-md"
+              class="px-4 py-2 bg-blue-600 hover:bg-blue-800 font-bold rounded mb-2 text-white"
               @click="submit"
             >Comment</button>
           </div>
@@ -71,7 +71,7 @@
         >
           <img src="../assets/empty.svg" alt width="500" />
           <div
-            class="bg-gray-200 inline-block rounded-lg px-10 py-5 text-gray-800 m-5"
+            class="bg-gray-100 inline-block rounded-lg px-10 py-5 text-gray-800 m-5"
           >Be the first to comment something.</div>
         </div>
         <div v-else>

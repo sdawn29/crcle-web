@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-10 shadow-lg rounded-lg p-5 bg-white" style="width:20em">
+  <div class="mx-auto mt-10 border rounded-lg p-5 bg-white" style="width:20em">
     <div>
       <div
         @click="$router.push({name: 'home'})"
@@ -40,7 +40,7 @@
         </div>
         <button
           type="submit"
-          class="bg-blue-700 hover:bg-blue-800 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer shadow-md"
+          class="bg-blue-700 hover:bg-blue-800 text-white my-5 px-4 py-2 font-bold w-full rounded cursor-pointer"
         >Sign In</button>
       </form>
       <div>

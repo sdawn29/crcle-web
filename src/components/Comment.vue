@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg shadow-lg px-5 py-2 mb-5 bg-white">
+  <div class="rounded-lg border px-5 py-2 mb-5 bg-white">
     <div id="body" class="mt-3" v-html="compiledMarkup"></div>
     <div class="flex flex-row-reverse">
       <!-- <div
@@ -54,9 +54,12 @@
 
       <div>
         <div
-          class="text-sm font-medium cursor-pointer rounded block text-purple-700 px-2 py-1 my-2 mx-2"
+          class="text-sm font-medium cursor-pointer rounded block px-2 py-1 my-2 mx-2"
           v-if="author.isAdmin"
-        >👑{{author.username}}</div>
+        >
+          {{author.username}}
+          <i class="fas fa-chess-king text-purple-700"></i>
+        </div>
         <div
           class="text-sm font-medium cursor-pointer rounded px-2 py-1 my-2 mx-2"
           v-if="!author.isAdmin"

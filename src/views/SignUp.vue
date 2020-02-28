@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-10 shadow-lg rounded-lg p-5 bg-white" style="width:20em">
+  <div class="mx-auto mt-10 border rounded-lg p-5 bg-white" style="width:20em">
     <div>
       <div
         @click="$router.push({name: 'home'})"
@@ -23,7 +23,7 @@
           <input
             type="text"
             placeholder="Enter Username"
-            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.username"
           />
         </div>
@@ -34,7 +34,7 @@
           <input
             type="password"
             placeholder="Enter Password"
-            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+            class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
             v-model="user.password"
           />
         </div>

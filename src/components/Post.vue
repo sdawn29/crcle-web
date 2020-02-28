@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg shadow-lg px-5 py-5 mb-5 flex justify-between bg-white">
+  <div class="rounded-lg border px-5 py-5 mb-5 flex justify-between bg-white">
     <div class="w-5/6 mr-2">
       <div id="title" class="font-semibold text-xl">{{title}}</div>
       <div id="body" class="text-sm mt-3" v-html="compiledMarkup"></div>
@@ -8,13 +8,20 @@
       <div class="h-full flex flex-col justify-between">
         <div>
           <div
-            class="text-sm font-medium cursor-pointer rounded block text-purple-700 w-full hover:underline"
+            class="text-sm font-medium cursor-pointer rounded block w-full hover:underline"
             v-if="author.isAdmin"
-          >{{author.username}}👑</div>
+          >
+            {{author.username}}
+            <i class="fas fa-chess-king text-purple-700 mx-1"></i>
+            <i class="fas fa-shield-alt text-green-600 mx-1"></i>
+          </div>
           <div
             class="text-sm font-medium cursor-pointer rounded hover:underline"
             v-if="!author.isAdmin"
-          >{{author.username}}🧔🏽</div>
+          >
+            {{author.username}}
+            <i class="fas fa-user text-blue-600"></i>
+          </div>
           <!-- <div
             class="text-xs font-bold border border-yellow-500 text-yellow-500 rounded my-2 px-2 py-1"
           >

@@ -3,7 +3,7 @@
     <Navbar />
     <div class="text-xl font-semibold">Create a new Crcle</div>
     <form class="flex justify-between my-3">
-      <div class="w-1/2">
+      <div class="w-1/2 bg-white rounded-lg p-5 border">
         <label for="name" class="font-bold text-gray-700">
           Name
           <span class="text-red-500">•</span>
@@ -14,7 +14,7 @@
         <input
           type="text"
           placeholder="Enter name of the comunity"
-          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
           required
         />
         <label for="Description" class="font-bold text-gray-700">
@@ -28,7 +28,7 @@
           type="text"
           rows="5"
           placeholder="Enter what the comunity is meant for. Max 500 words"
-          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
           required
         />
         <label for="avatar" class="font-bold text-gray-700">Avatar Image link</label>
@@ -38,7 +38,7 @@
         <input
           type="text"
           placeholder="https://someimagelink.xyz"
-          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-200 focus:border-blue-700 focus:bg-white text-sm"
+          class="w-full px-4 py-2 bg-gray-300 rounded my-2 outline-none border-2 border-gray-300 focus:border-blue-700 focus:bg-white text-sm"
           required
         />
         <label for="avatar" class="font-bold text-gray-700">
@@ -117,7 +117,7 @@
         </div>
         <button
           type="submit"
-          class="bg-blue-600 hover:bg-blue-700 text-white my-2 px-4 py-2 font-bold rounded cursor-pointer shadow-md"
+          class="bg-blue-600 hover:bg-blue-700 text-white my-2 px-4 py-2 font-bold rounded cursor-pointer"
         >Create Crcle</button>
       </div>
       <div class="w-1/2 pl-6 mt-32">
